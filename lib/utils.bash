@@ -33,7 +33,7 @@ list_all_versions() {
 	# instead of querying the assets for each release separately
 	gh_query "releases" |
 		# Must not be an M0 version
-		grep -oE '"name": "[0-9]+\.[0-9]+-[0-9]+\.[0-9]+\.[0-9]+"' |
+		grep -oE '"name": "[0-9]+\.[0-9]+-[0-9]+\.[0-9]+\.[0-9]+(-[0-9]-[a-fA-F0-9]+)?"' |
 		# Extract the asset names
 		cut -d '"' -f 4 |
 		uniq 
